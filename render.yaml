@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: bridgeit-backend
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn bridgeit.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DJANGO_SETTINGS_MODULE
+        value: bridgeit.settings
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bridgeit-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 2
+
+databases:
+  - name: bridgeit-db
+    databaseName: bridgeit
+    user: bridgeit_user
