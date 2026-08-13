@@ -2,6 +2,7 @@ services:
   - type: web
     name: bridgeit-backend
     env: python
+    plan: free
     buildCommand: "./build.sh"
     startCommand: "gunicorn bridgeit.wsgi:application"
     envVars:
@@ -22,3 +23,4 @@ databases:
   - name: bridgeit-db
     databaseName: bridgeit
     user: bridgeit_user
+    plan: free
