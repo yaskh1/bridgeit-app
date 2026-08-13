@@ -21,6 +21,4 @@ services:
 
 databases:
   - name: bridgeit-db
-    databaseName: bridgeit
-    user: bridgeit_user
     plan: free
