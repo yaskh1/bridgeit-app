@@ -76,3 +76,39 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 # BridgeIT Admin Custom Styling
 ADMIN_LOGIN_REDIRECT_URL = '/admin/'
+# Custom BridgeIT Admin Styling (Pure White Background & High Contrast)
+from django.utils.html import format_html
+
+ADMIN_STYLES = """
+<style>
+    /* Force main page background to clean white */
+    body, #container, html {
+        background-color: #FFFFFF !important;
+        background: #FFFFFF !important;
+        color: #333333 !important;
+    }
+    /* Brand Header Bar Styling */
+    #header {
+        background-color: #1A4D54 !important;
+        color: #FFFFFF !important;
+    }
+    /* High contrast login box card */
+    .login #container {
+        background: #FFFFFF !important;
+        border: 2px solid #1A4D54 !important;
+        border-radius: 12px !important;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08) !important;
+        padding: 25px !important;
+    }
+    /* Button primary brand styling */
+    .button, input[type=submit] {
+        background-color: #1A4D54 !important;
+        color: #FFFFFF !important;
+        border-radius: 6px !important;
+        font-weight: bold !important;
+    }
+    .button:hover, input[type=submit]:hover {
+        background-color: #28A7A0 !important;
+    }
+</style>
+"""
